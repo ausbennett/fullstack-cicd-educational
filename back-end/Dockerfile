@@ -7,6 +7,7 @@ COPY package*.json ./
 
 # ---- Dependencies ----
 FROM base AS dependencies
+RUN npm install -g npm@latest
 # Install production dependencies
 RUN npm ci --only=production
 # Copy production dependencies
