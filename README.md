@@ -5,9 +5,7 @@ This repository serves to document my process of creating a CI/CD pipeline for a
 ## Pipeline:
 The Pipeline will use the following tools:
 - Jenkins
-- Terraform
 - Azure
-- Kubernetes
 - Docker
 
 ## Fullstack CRUD App:
