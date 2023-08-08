@@ -1,24 +1,35 @@
-version: "3"
+version: "3.7"
 
 services:
   volleyball-fe:
     image: volleyball-fe:latest
+    build:
+      context: ./frontend
     ports:
       - "80:80"
+    networks:
+      - volleyball-network
 
   volleyball-api:
     image: volleyball-api:latest
+    build:
+      context: ./backend
     ports:
       - "5001:5001"
+    networks:
+      - volleyball-network
     depends_on:
-      - volleyball-sql
+      - volleyball-db
 
-  volleyball-sql:
-    image: mysql:latest
-    expose:
-      - "3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: volleyball
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
+  volleyball-db:
+    image: volleyball-db:latest
+    build:
+      context: ./database
+    ports:
+      - "3306:3306"
+    networks:
+      - volleyball-network
+
+networks:
+  volleyball-network:
+    driver: bridge
