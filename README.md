@@ -19,7 +19,8 @@ The Pipeline will use the following:
 - Works locally, needs to be adapted for the cloud
 
 ## 2. Jenkins Node [ IN PROG ]
-- Configure Connection to github
+- ~~Configure Connection to GitHub~~
+- Watch for code commits
 - Build & Push Docker Images
 - Test
 - Deploy to Azure
